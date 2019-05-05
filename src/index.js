@@ -1,5 +1,11 @@
+import express from 'express';
 import 'dotenv/config';
 
-console.log('Express api');
+import cors from 'cors';
 
-console.log(process.env.MY_SECRET);
+const app = express();
+
+app.use(cors());
+
+app.get('/data', (req, res) => res.send({message: 'Cos'}));
+app.listen(process.env.PORT, () => console.log('Listening on port ', 3000));
